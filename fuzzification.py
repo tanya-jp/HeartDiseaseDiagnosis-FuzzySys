@@ -36,10 +36,10 @@ class AgeFuzzification:
 
     def calc_fuzzy(self, age):
         return dict(
-            age_young=self.age_young(age),
-            age_mid=self.age_mid(age),
-            age_old=self.age_old(age),
-            age_veryold=self.age_veryold(age)
+            young=self.age_young(age),
+            mid=self.age_mid(age),
+            old=self.age_old(age),
+            very_old=self.age_veryold(age)
         )
 
 
@@ -82,10 +82,10 @@ class BloodPressure:
 
     def calc_fuzzy(self, bp):
         return dict(
-            bloodPressure_low=self.bloodPressure_low(bp),
-            bloodPressure_medium=self.bloodPressure_medium(bp),
-            bloodPressure_high=self.bloodPressure_high(bp),
-            bloodPressure_veryhigh=self.bloodPressure_veryhigh(bp)
+            low=self.bloodPressure_low(bp),
+            medium=self.bloodPressure_medium(bp),
+            high=self.bloodPressure_high(bp),
+            very_high=self.bloodPressure_veryhigh(bp)
         )
 
 
@@ -103,7 +103,8 @@ class BoolSugar:
 
     def calc_fuzzy(self, bs):
         return dict(
-            bloodSugar_veryhigh = self.bloodSugar_veryhigh(bs)
+            true=self.bloodSugar_veryhigh(bs),
+            false=1-self.bloodSugar_veryhigh(bs)
         )
 
 
@@ -146,10 +147,10 @@ class Cholesterol:
 
     def calc_fuzzy(self, ch):
         return dict(
-            cholesterol_low=self.cholesterol_low(ch),
-            cholesterol_medium=self.cholesterol_medium(ch),
-            cholesterol_high=self.cholesterol_high(ch),
-            cholesterol_veryhigh=self.cholesterol_veryhigh(ch)
+            low=self.cholesterol_low(ch),
+            medium=self.cholesterol_medium(ch),
+            high=self.cholesterol_high(ch),
+            very_high=self.cholesterol_veryhigh(ch)
         )
 
 
@@ -183,9 +184,9 @@ class HeartRate:
 
     def calc_fuzzy(self, hr):
         return dict(
-            heartRate_low=self.heartRate_low(hr),
-            heartRate_medium=self.heartRate_medium(hr),
-            cholesheartRate_highterol_high=self.heartRate_high(hr)
+            low=self.heartRate_low(hr),
+            medium=self.heartRate_medium(hr),
+            highterol_high=self.heartRate_high(hr)
         )
 
 
@@ -219,9 +220,9 @@ class ECG:
 
     def calc_fuzzy(self, ecg):
         return dict(
-            ECG_normal=self.normal(ecg),
-            ECG_abnormal=self.abnormal(ecg),
-            ECG_hypertrophy=self.hypertrophy(ecg)
+            normal=self.normal(ecg),
+            abnormal=self.abnormal(ecg),
+            hypertrophy=self.hypertrophy(ecg)
         )
 
 
@@ -255,9 +256,9 @@ class OldPeak:
 
     def calc_fuzzy(self, op):
         return dict(
-            oldPeak_low=self.oldPeak_low(op),
-            oldPeak_risk=self.oldPeak_risk(op),
-            oldPeak_terrible=self.oldPeak_terrible(op)
+            low=self.oldPeak_low(op),
+            risk=self.oldPeak_risk(op),
+            terrible=self.oldPeak_terrible(op)
         )
 
 
@@ -316,8 +317,8 @@ class Exercise:
 
     def calc_fuzzy(self, ex):
         return dict(
-            OK=self.OK(ex),
-            notOK=self.notOK(ex)
+            true=self.OK(ex),
+            false=self.notOK(ex)
         )
 
 
@@ -349,7 +350,6 @@ class Thallium:
             medium=self.medium(th),
             high=self.high(th)
         )
-
 
 
 class Sex:
