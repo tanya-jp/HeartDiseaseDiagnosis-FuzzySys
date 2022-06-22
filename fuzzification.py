@@ -224,7 +224,8 @@ class ECG:
             ECG_hypertrophy=self.hypertrophy(ecg)
         )
 
-class OladPeak:
+
+class OldPeak:
     def __init__(self):
         pass
 
@@ -258,3 +259,164 @@ class OladPeak:
             oldPeak_risk=self.oldPeak_risk(op),
             oldPeak_terrible=self.oldPeak_terrible(op)
         )
+
+
+class ChestPain:
+    def __int__(self):
+        pass
+
+    def typical_angina(self, x):
+        if x == 1:
+            return 1
+        else:
+            return 0
+
+    def atypical_angina(self, x):
+        if x == 2:
+            return 1
+        else:
+            return 0
+
+    def non_angial_pain(self, x):
+        if x == 3:
+            return 1
+        else:
+            return 0
+
+    def asymptomatic(self, x):
+        if x == 4:
+            return 1
+        else:
+            return 0
+
+    def calc_fuzzy(self, cp):
+        return dict(
+            typical_angina=self.typical_angina(cp),
+            atypical_angina=self.atypical_angina(cp),
+            non_angial_pain=self.non_angial_pain(cp),
+            asymptomatic=self.asymptomatic(cp)
+        )
+
+
+class Exercise:
+    def __init__(self):
+        pass
+
+    def OK(self, x):
+        if x == 1:
+            return 1
+        else:
+            return 0
+
+    def notOK(self, x):
+        if x == 0:
+            return 1
+        else:
+            return 0
+
+    def calc_fuzzy(self, ex):
+        return dict(
+            OK=self.OK(ex),
+            notOK=self.notOK(ex)
+        )
+
+
+class Thallium:
+    def __init__(self):
+        pass
+
+    def normal(self, x):
+        if x == 3:
+            return 1
+        else:
+            return 0
+
+    def medium(self, x):
+        if x == 6:
+            return 1
+        else:
+            return 0
+
+    def high(self, x):
+        if x == 7:
+            return 1
+        else:
+            return 0
+
+    def calc_fuzzy(self, th):
+        return dict(
+            normal=self.normal(th),
+            medium=self.medium(th),
+            high=self.high(th)
+        )
+
+
+
+class Sex:
+    def __init__(self):
+        pass
+
+    def female(self, x):
+        if x == 1:
+            return 1
+        else:
+            return 0
+
+    def male(self, x):
+        if x == 0:
+            return 1
+        else:
+            return 0
+
+    def calc_fuzzy_sex(self, s):
+        return dict(
+            male=self.male(s),
+            female=self.female(s)
+        )
+
+
+class OutPutSick:
+    def __int__(self):
+        pass
+
+    def outPut_sick1(self, x):
+        if 0 < x <= 1:
+            return x
+        if 1 < x <= 2:
+            return 2 - x
+        else:
+            return 0
+
+    def outPut_sick2(self, x):
+        if 1 < x <= 2:
+            return x - 1
+        if 2 < x <= 3:
+            return 3 - x
+        else:
+            return 0
+
+    def outPut_sick3(self, x):
+        if 2 < x <= 3:
+            return x - 2
+        if 3 < x <= 4:
+            return 4 - x
+        else:
+            return 0
+
+    def outPut_sick4(self, x):
+        if 3 < x <= 3.75:
+            return (x-3)/(3.75-3)
+        if 3.75 < x:
+            return 1
+        else:
+            return 0
+
+    def healthy(self, x):
+        if x <= 0.25:
+            return 1
+        if 0.25 < x <= 1:
+            return (1-x)/(1-0.25)
+        else:
+            return 0
+
+
