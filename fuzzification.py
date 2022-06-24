@@ -89,7 +89,7 @@ class BloodPressure:
         )
 
 
-class BoolSugar:
+class BloodSugar:
     def __init__(self):
         pass
 
@@ -368,7 +368,7 @@ class Sex:
         else:
             return 0
 
-    def calc_fuzzy_sex(self, s):
+    def calc_fuzzy(self, s):
         return dict(
             male=self.male(s),
             female=self.female(s)
@@ -420,3 +420,33 @@ class OutPutSick:
             return 0
 
 
+class Fuzzify:
+    def __int__(self):
+        pass
+
+    def fuzzification_result(self, data):
+        age_class = Age()
+        bp_class = BloodPressure()
+        bs_class = BloodSugar()
+        cholesterol_class = Cholesterol()
+        hr_class = HeartRate()
+        ecg_class = ECG()
+        op_class = OldPeak()
+        cp_class = ChestPain()
+        exercise_class = Exercise()
+        thallium_class = Thallium()
+        sex_class = Sex()
+
+        age = age_class.calc_fuzzy(data['age'])
+        bp = bp_class.calc_fuzzy(data['bloodPressure'])
+        bs = bs_class.calc_fuzzy(data['bloodSugar'])
+        cholesterol = cholesterol_class.calc_fuzzy(data['cholesterol'])
+        hr = hr_class.calc_fuzzy(data['heartRate'])
+        ecg = ecg_class.calc_fuzzy(data['ECG'])
+        op = op_class.calc_fuzzy(data['oldPeak'])
+        cp = cp_class.calc_fuzzy(data['chestPain'])
+        exercise = exercise_class.calc_fuzzy(data['exercise'])
+        thallium = thallium_class.calc_fuzzy(data['thallium'])
+        sex = sex_class.calc_fuzzy(data['sex'])
+
+        return age, bp, bs, cholesterol, hr, ecg, op, cp, exercise, thallium, sex
