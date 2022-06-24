@@ -98,7 +98,7 @@ class FuzzyInference:
         output_sick4.append(hr['high'])
 
         # exercise
-        # 39 ----- EX
+        # 39
         output_sick2.append(exercise['true'])
 
         # Old Peak
