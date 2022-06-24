@@ -2,7 +2,7 @@ class FuzzyInference:
     def __int__(self):
         pass
 
-    def inference(self, age, bp, bs, cholesterol, hr, ecg, op, cp, exercise, thallium, sex):
+    def inference_result(self, age, bp, bs, cholesterol, hr, ecg, op, cp, exercise, thallium, sex):
         output_sick1, output_sick2, output_sick3, output_sick4, output_healthy = ([] for i in range(5))
 
         # rules
@@ -136,4 +136,12 @@ class FuzzyInference:
         output_sick3.append(age['old'])
         # 54
         output_sick4.append(age['very_old'])
+
+        return dict(
+            output_sick1=max(output_sick1),
+            output_sick2=max(output_sick2),
+            output_sick3=max(output_sick3),
+            output_sick4=max(output_sick4),
+            output_healthy=max(output_healthy)
+        )
 
