@@ -6,10 +6,10 @@ class Defuzzify:
     def __int__(self):
         pass
 
-    def difuzzy_caculator(self, data):
-        points_num = 300
-        step = 10. / points_num
-        points_of_sickness = [-0.5 + i * step for i in range(points_num + 1)]
+    def defuzzy_caculator(self, data):
+        points_num = 1000
+        step = 5. / points_num
+        points_of_sickness = [0 + i * step for i in range(points_num + 1)]
 
         numerator = 0.
         denominator = 0.
@@ -33,13 +33,13 @@ class Defuzzify:
 
             result = max(sick1, sick2, sick3, sick4, healthy)
 
-            numerator += result * point * step
-            denominator += result * step
+            numerator += result * point
+            denominator += result
 
         return numerator/denominator if denominator != 0 else 0
 
     def defuzzification_result(self, data):
-        x_star = self.difuzzy_caculator(data)
+        x_star = self.defuzzy_caculator(data)
         if x_star < 0.5:
             return 'output_healthy'
         if x_star < 1.5:
