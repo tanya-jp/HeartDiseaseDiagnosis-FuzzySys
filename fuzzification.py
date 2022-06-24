@@ -63,7 +63,6 @@ class BloodPressure:
         else:
             return 0
 
-
     def bloodPressure_high(self, x):
         if 142 < x <= 157:
             return (x-142)/(157-142)
@@ -186,7 +185,7 @@ class HeartRate:
         return dict(
             low=self.heartRate_low(hr),
             medium=self.heartRate_medium(hr),
-            highterol_high=self.heartRate_high(hr)
+            high=self.heartRate_high(hr)
         )
 
 
@@ -266,13 +265,13 @@ class ChestPain:
     def __int__(self):
         pass
 
-    def typical_angina(self, x):
+    def typical_anginal(self, x):
         if x == 1:
             return 1
         else:
             return 0
 
-    def atypical_angina(self, x):
+    def atypical_anginal(self, x):
         if x == 2:
             return 1
         else:
@@ -292,9 +291,9 @@ class ChestPain:
 
     def calc_fuzzy(self, cp):
         return dict(
-            typical_angina=self.typical_angina(cp),
-            atypical_angina=self.atypical_angina(cp),
-            non_angial_pain=self.non_angial_pain(cp),
+            typical_anginal=self.typical_anginal(cp),
+            atypical_anginal=self.atypical_anginal(cp),
+            non_anginal_pain=self.non_angial_pain(cp),
             asymptomatic=self.asymptomatic(cp)
         )
 
@@ -437,16 +436,16 @@ class Fuzzify:
         thallium_class = Thallium()
         sex_class = Sex()
 
-        age = age_class.calc_fuzzy(data['age'])
-        bp = bp_class.calc_fuzzy(data['bloodPressure'])
-        bs = bs_class.calc_fuzzy(data['bloodSugar'])
-        cholesterol = cholesterol_class.calc_fuzzy(data['cholesterol'])
-        hr = hr_class.calc_fuzzy(data['heartRate'])
-        ecg = ecg_class.calc_fuzzy(data['ECG'])
-        op = op_class.calc_fuzzy(data['oldPeak'])
-        cp = cp_class.calc_fuzzy(data['chestPain'])
-        exercise = exercise_class.calc_fuzzy(data['exercise'])
-        thallium = thallium_class.calc_fuzzy(data['thallium'])
-        sex = sex_class.calc_fuzzy(data['sex'])
+        age = age_class.calc_fuzzy(float(data['age']))
+        bp = bp_class.calc_fuzzy(float(data['blood_pressure']))
+        bs = bs_class.calc_fuzzy(float(data['blood_sugar']))
+        cholesterol = cholesterol_class.calc_fuzzy(float(data['cholestrol']))
+        hr = hr_class.calc_fuzzy(float(data['heart_rate']))
+        ecg = ecg_class.calc_fuzzy(float(data['ecg']))
+        op = op_class.calc_fuzzy(float(data['old_peak']))
+        cp = cp_class.calc_fuzzy(float(data['chest_pain']))
+        exercise = exercise_class.calc_fuzzy(float(data['exercise']))
+        thallium = thallium_class.calc_fuzzy(float(data['thallium_scan']))
+        sex = sex_class.calc_fuzzy(int(data['sex']))
 
         return age, bp, bs, cholesterol, hr, ecg, op, cp, exercise, thallium, sex

@@ -7,9 +7,9 @@ class Defuzzify:
         pass
 
     def difuzzy_caculator(self, data):
-        points_num = 10000
+        points_num = 300
         step = 10. / points_num
-        points_of_sickness = [-100. + i * step for i in range(points_num + 1)]
+        points_of_sickness = [-0.5 + i * step for i in range(points_num + 1)]
 
         numerator = 0.
         denominator = 0.

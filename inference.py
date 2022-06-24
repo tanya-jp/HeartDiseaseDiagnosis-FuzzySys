@@ -7,135 +7,135 @@ class FuzzyInference:
 
         # rules
         # 1
-        output_sick4.append(min(age['very_old'], cp(['atypical_anginal'])))
+        output_sick4.append(min(float(age['very_old']), float(cp['atypical_anginal'])))
         # 2
-        output_sick4.append(min(hr['high'], age(['old'])))
+        output_sick4.append(min(float(hr['high']), float(age['old'])))
         # 3
-        output_sick3.append(min(sex['male'], hr(['medium'])))
+        output_sick3.append(min(float(sex['male']), float(hr['medium'])))
         # 4
-        output_sick2.append(min(sex['female'], hr(['medium'])))
+        output_sick2.append(min(float(sex['female']), float(hr['medium'])))
         # 5
-        output_sick3.append(min(cp['non_anginal_pain'], bp(['high'])))
+        output_sick3.append(min(float(cp['non_anginal_pain']), float(bp['high'])))
         # 6
-        output_sick2.append(min(cp['typical_anginal'], hr(['medium'])))
+        output_sick2.append(min(float(cp['typical_anginal']), float(hr['medium'])))
         # 7
-        output_sick3.append(min(bs['true'], age(['mid'])))
+        output_sick3.append(min(float(bs['true']), float(age['mid'])))
         # 8
-        output_sick2.append(min(bs['false'], bp(['very_high'])))
+        output_sick2.append(min(float(bs['false']), float(bp['very_high'])))
         # 9
-        output_sick1.append(max(cp['asymptomatic'], age(['very_old'])))
+        output_sick1.append(max(float(cp['asymptomatic']), float(age['very_old'])))
         # 10
-        output_sick1.append(max(bp['high'], age(['very_old'])))
+        output_sick1.append(max(float(bp['high']), float(age['very_old'])))
 
         # Chest Pain
         # 11
-        output_healthy.append(cp['typical_anginal'])
+        output_healthy.append(float(cp['typical_anginal']))
         # 12
-        output_sick1.append(cp['atypical_anginal'])
+        output_sick1.append(float(cp['atypical_anginal']))
         # 13
-        output_sick2.append(cp['non_anginal_pain'])
+        output_sick2.append(float(cp['non_anginal_pain']))
         # 14
-        output_sick3.append(cp['asymptomatic'])
+        output_sick3.append(float(cp['asymptomatic']))
         # 15
-        output_sick4.append(cp['asymptomatic'])
+        output_sick4.append(float(cp['asymptomatic']))
 
         # Sex
         # 16
-        output_sick1.append(sex['female'])
+        output_sick1.append(float(sex['female']))
         # 17
-        output_sick2.append(sex['male'])
+        output_sick2.append(float(sex['male']))
 
         # Blood Pressure
         # 18
-        output_healthy.append(bp['low'])
+        output_healthy.append(float(bp['low']))
         # 19
-        output_sick1.append(bp['medium'])
+        output_sick1.append(float(bp['medium']))
         # 20
-        output_sick2.append(bp['high'])
+        output_sick2.append(float(bp['high']))
         # 21
-        output_sick3.append(bp['high'])
+        output_sick3.append(float(bp['high']))
         # 22
-        output_sick4.append(bp['very_high'])
+        output_sick4.append(float(bp['very_high']))
 
         # Cholesterol
         # 23
-        output_healthy.append(cholesterol['low'])
+        output_healthy.append(float(cholesterol['low']))
         # 24
-        output_sick1.append(cholesterol['medium'])
+        output_sick1.append(float(cholesterol['medium']))
         # 25
-        output_sick2.append(cholesterol['high'])
+        output_sick2.append(float(cholesterol['high']))
         # 26
-        output_sick3.append(cholesterol['high'])
+        output_sick3.append(float(cholesterol['high']))
         # 27
-        output_sick4.append(cholesterol['very_high'])
+        output_sick4.append(float(cholesterol['very_high']))
 
         # Blood sugar
         # 28
-        output_sick2.append(bs['true'])
+        output_sick2.append(float(bs['true']))
 
         # ECG
         # 29
-        output_healthy.append(ecg['normal'])
+        output_healthy.append(float(ecg['normal']))
         # 30
-        output_sick1.append(ecg['normal'])
+        output_sick1.append(float(ecg['normal']))
         # 31
-        output_sick2.append(ecg['abnormal'])
+        output_sick2.append(float(ecg['abnormal']))
         # 32
-        output_sick3.append(ecg['hypertrophy'])
+        output_sick3.append(float(ecg['hypertrophy']))
         # 33
-        output_sick4.append(ecg['hypertrophy'])
+        output_sick4.append(float(ecg['hypertrophy']))
 
         # Heart Rate
         # 34
-        output_healthy.append(hr['low'])
+        output_healthy.append(float(hr['low']))
         # 35
-        output_sick1.append(hr['medium'])
+        output_sick1.append(float(hr['medium']))
         # 36
-        output_sick2.append(hr['medium'])
+        output_sick2.append(float(hr['medium']))
         # 37
-        output_sick3.append(hr['high'])
+        output_sick3.append(float(hr['high']))
         # 38
-        output_sick4.append(hr['high'])
+        output_sick4.append(float(hr['high']))
 
         # exercise
         # 39
-        output_sick2.append(exercise['true'])
+        output_sick2.append(float(exercise['true']))
 
         # Old Peak
         # 40
-        output_healthy.append(op['low'])
+        output_healthy.append(float(op['low']))
         # 41
-        output_sick1.append(op['low'])
+        output_sick1.append(float(op['low']))
         # 42
-        output_sick2.append(op['terrible'])
+        output_sick2.append(float(op['terrible']))
         # 43
-        output_sick3.append(op['terrible'])
+        output_sick3.append(float(op['terrible']))
         # 44
-        output_sick4.append(op['risk'])
+        output_sick4.append(float(op['risk']))
 
         # Thallium
         # 45
-        output_healthy.append(thallium['normal'])
+        output_healthy.append(float(thallium['normal']))
         # 46
-        output_sick1.append(thallium['normal'])
+        output_sick1.append(float(thallium['normal']))
         # 47
-        output_sick2.append(thallium['medium'])
+        output_sick2.append(float(thallium['medium']))
         # 48
-        output_sick3.append(thallium['high'])
+        output_sick3.append(float(thallium['high']))
         # 49
-        output_sick4.append(thallium['high'])
+        output_sick4.append(float(thallium['high']))
 
         # Age
         # 50
-        output_healthy.append(age['young'])
+        output_healthy.append(float(age['young']))
         # 51
-        output_sick1.append(age['mild'])
+        output_sick1.append(float(age['mid']))
         # 52
-        output_sick2.append(age['old'])
+        output_sick2.append(float(age['old']))
         # 53
-        output_sick3.append(age['old'])
+        output_sick3.append(float(age['old']))
         # 54
-        output_sick4.append(age['very_old'])
+        output_sick4.append(float(age['very_old']))
 
         return dict(
             output_sick1=max(output_sick1),
