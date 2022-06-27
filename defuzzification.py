@@ -40,14 +40,18 @@ class Defuzzify:
 
     def defuzzification_result(self, data):
         x_star = self.defuzzy_caculator(data)
-        if x_star < 0.5:
-            return 'output_healthy'
-        if x_star < 1.5:
-            return 'output_sick1'
-        if x_star < 2.5:
-            return 'output_sick2'
-        if x_star < 3.5:
-            return 'output_sick3'
-        else:
-            return 'output_sick4'
+        result = ""
+        if x_star < 1.78:
+             result += "healthy "
+        if 1 < x_star < 2.51:
+            result += "sick1 "
+        if 1.78 < x_star < 3.25:
+            result += "sick2 "
+        if 1.5 < x_star < 4.5:
+            result += "sick3 "
+        if 3.25 < x_star:
+            result += "sick4 "
+        result += ": " + str(x_star)
+        return result
+
 
